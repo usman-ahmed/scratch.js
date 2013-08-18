@@ -1,0 +1,57 @@
+<body>
+   <h1>Random Updates Using Ractive.js</h1>
+   <input type='button' value='Randomize' onclick="Update()"/>
+   <input type='button' value='Reset' onclick="Reset()"/>
+   
+   <div id='container-0'></div>
+   <script>
+    function Update()
+    {
+      var text = 'text_' + Math.floor(Math.random()*11)
+      value = Math.floor(Math.random()*100000000001)
+      ractive.set(text,value)
+    }
+    function Reset()
+    {
+      for (var i=0;i<10;i++)
+       { 
+         ractive.set('text_'+i,'')
+       }
+    }
+    </script>
+    <script id='update-template' type='text/ractive'>
+        <p>{{text_0}}</p>
+        <p>{{text_1}}</p>
+        <p>{{text_2}}</p>
+        <p>{{text_3}}</p>
+        <p>{{text_4}}</p>
+        <p>{{text_5}}</p>
+        <p>{{text_6}}</p>
+        <p>{{text_7}}</p>
+        <p>{{text_8}}</p>
+        <p>{{text_9}}</p>
+    </script>
+
+    <script src='Ractive.js'></script>   
+    
+    <script>
+        var ractive = new Ractive( { 
+           el: 'container-0', 
+           template: '#update-template', 
+           data: { 
+             text_0: '',
+             text_1: '',
+             text_2: '',
+             text_3: '',
+             text_4: '',
+             text_5: '',
+             text_6: '',
+             text_7: '',    
+             text_8: '',
+             text_9: '',
+           } 
+        });
+          
+    </script>
+    
+</body>
